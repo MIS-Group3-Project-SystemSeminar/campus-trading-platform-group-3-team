@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log In</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabName).style.display = 'block';
+ 
+            const buttons = document.querySelectorAll('.sidebar .tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`.sidebar .tab-button[data-tab="${tabName}"]`).classList.add('active');
+        }
+ 
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('overview');
+        });
+    </script>
 </head>
 <body>
     <header>
         <nav>
-                <a href="index.html" class="home-link"><span class="material-icons">home</span></a>
+            <a href="demo_homepage.html" class="home-link">
+                <span class="material-icons">home</span> Home
+            </a>
+            <ul>
+                <li><a href="about.html"><span class="material-icons">info</span> About</a></li>
+                <li><a href="account-info.html"><span class="material-icons">person</span> Account Info</a></li>
+                <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
+                <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
+            </ul>
         </nav>
     </header>
 <body>
@@ -16,10 +43,16 @@
     <form>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
-        <label for="password">Password:</label>   
-
+        <label for="password">Password:</label>  
+ 
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Login">
     </form>
 </body>
-</html>   
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="about.html"><span class="material-icons">info</span> About</a>
+        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
+    </footer>
+</html>  
+ 
