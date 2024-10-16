@@ -86,9 +86,10 @@
             </div>
  
             <div class="form-group">
-                <label for="password">Password:</label>
+                <label for="password">Password (At least 9 characters, 1 symbol, and 1 number):</label>
                 <input type="password" id="password" name="password"
-                    pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" required>
+                    pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" 
+                    title="Password must be at least 9 characters long and include at least one number and one symbol." required>
                 <span class="error-message">Password must be at least 9 characters long with numbers and symbols.</span>
             </div>
  
@@ -125,7 +126,14 @@
                     const input = document.getElementById(field);
                     const error = input.nextElementSibling;
                    
-                    if (!input.checkValidity() || (field === 'confirm-password' && input.value !== document.getElementById('password').value)) {
+                    // Password matching validation
+                    if (field === 'confirm-password' && input.value !== document.getElementById('password').value) {
+                        input.classList.add('invalid');
+                        error.style.display = 'inline';
+                        formValid = false;
+                    }
+                    // General input validation
+                    else if (!input.checkValidity()) {
                         input.classList.add('invalid');
                         error.style.display = 'inline';
                         formValid = false;
