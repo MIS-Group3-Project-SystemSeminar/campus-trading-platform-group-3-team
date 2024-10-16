@@ -22,7 +22,6 @@
             padding: 20px;
             border: 1px solid #cccccc;
             border-radius: 8px;
-            position: relative;
         }
         input {
             width: 100%;
@@ -38,18 +37,6 @@
             color: red;
             font-size: 0.9em;
             display: none;
-        }
-        .password-container {
-            position: relative;
-        }
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 14px;
-            color: #333;
         }
         button {
             width: 100%;
@@ -119,22 +106,16 @@
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
             <br><br>
 
-            <!-- Password Field with Toggle -->
+            <!-- Password Field -->
             <label for="password">Password (min 9 characters, must have at least 1 number and 1 symbol):</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password" placeholder="Enter your password" 
-                    pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" title="Password must be at least 9 characters long and include at least one number and one special character." required>
-                <span class="toggle-password" onclick="togglePasswordVisibility('password')">Show</span>
-            </div>
+            <input type="password" id="password" name="password" placeholder="Enter your password" 
+                pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" title="Password must be at least 9 characters long and include at least one number and one special character." required>
             <span class="error-message" id="password-error">Password must be at least 9 characters long and include numbers and symbols.</span>
             <br><br>
 
-            <!-- Confirm Password Field with Toggle -->
+            <!-- Confirm Password Field -->
             <label for="confirm-password">Confirm Password:</label>
-            <div class="password-container">
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
-                <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password')">Show</span>
-            </div>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
             <span class="error-message" id="confirm-password-error">Passwords do not match.</span>
             <br><br>
 
@@ -143,33 +124,27 @@
         </form>
 
         <script>
-            // Toggle password visibility
-            function togglePasswordVisibility(fieldId) {
-                const passwordField = document.getElementById(fieldId);
-                const toggle = passwordField.nextElementSibling;
-
-                if (passwordField.type === 'password') {
-                    passwordField.type = 'text';
-                    toggle.textContent = 'Hide';
+            // Function to check validation and apply/remove invalid class
+            function validateField(input, errorMessageElement, pattern = null) {
+                if (pattern && !pattern.test(input.value)) {
+                    input.classList.add('invalid');
+                    errorMessageElement.style.display = 'inline';
+                } else if (!input.checkValidity()) {
+                    input.classList.add('invalid');
+                    errorMessageElement.style.display = 'inline';
                 } else {
-                    passwordField.type = 'password';
-                    toggle.textContent = 'Show';
+                    input.classList.remove('invalid');
+                    errorMessageElement.style.display = 'none';
                 }
             }
 
             // Real-time validation for the @uark.edu email
             const emailInput = document.getElementById('email');
             const emailError = document.getElementById('email-error');
-            
+            const emailPattern = /[a-zA-Z0-9._%+-]+@uark\.edu$/;
+
             emailInput.addEventListener('input', function() {
-                const emailPattern = /[a-zA-Z0-9._%+-]+@uark\.edu$/;
-                if (!emailPattern.test(emailInput.value)) {
-                    emailInput.classList.add('invalid');
-                    emailError.style.display = 'inline';
-                } else {
-                    emailInput.classList.remove('invalid');
-                    emailError.style.display = 'none';
-                }
+                validateField(emailInput, emailError, emailPattern);
             });
 
             document.querySelector('form').addEventListener('submit', function(e) {
@@ -181,9 +156,11 @@
                 const confirmPasswordError = document.getElementById('confirm-password-error');
 
                 if (password !== confirmPassword) {
+                    document.getElementById('confirm-password').classList.add('invalid');
                     confirmPasswordError.style.display = 'inline';
                     valid = false;
                 } else {
+                    document.getElementById('confirm-password').classList.remove('invalid');
                     confirmPasswordError.style.display = 'none';
                 }
 
@@ -192,12 +169,7 @@
                 requiredFields.forEach(function(field) {
                     const input = document.getElementById(field);
                     const errorElement = document.getElementById(field + '-error');
-                    if (!input.checkValidity()) {
-                        errorElement.style.display = 'inline';
-                        valid = false;
-                    } else {
-                        errorElement.style.display = 'none';
-                    }
+                    validateField(input, errorElement);
                 });
 
                 // Prevent form submission if there are errors
