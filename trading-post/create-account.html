@@ -83,11 +83,13 @@
             <!-- First Name Field -->
             <label for="first-name">First Name:</label>
             <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+            <span class="error-message" id="first-name-error">First name is required.</span>
             <br><br>
 
             <!-- Last Name Field -->
             <label for="last-name">Last Name:</label>
             <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+            <span class="error-message" id="last-name-error">Last name is required.</span>
             <br><br>
 
             <!-- Email Field with @uark.edu restriction -->
@@ -97,13 +99,15 @@
             <br><br>
 
             <!-- Age Field -->
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            <label for="age">Age (must be at least 17):</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" min="17" required>
+            <span class="error-message" id="age-error">Age must be at least 17.</span>
             <br><br>
 
             <!-- Username Field -->
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <span class="error-message" id="username-error">Username is required.</span>
             <br><br>
 
             <!-- Password Field -->
@@ -124,29 +128,6 @@
         </form>
 
         <script>
-            // Function to check validation and apply/remove invalid class
-            function validateField(input, errorMessageElement, pattern = null) {
-                if (pattern && !pattern.test(input.value)) {
-                    input.classList.add('invalid');
-                    errorMessageElement.style.display = 'inline';
-                } else if (!input.checkValidity()) {
-                    input.classList.add('invalid');
-                    errorMessageElement.style.display = 'inline';
-                } else {
-                    input.classList.remove('invalid');
-                    errorMessageElement.style.display = 'none';
-                }
-            }
-
-            // Real-time validation for the @uark.edu email
-            const emailInput = document.getElementById('email');
-            const emailError = document.getElementById('email-error');
-            const emailPattern = /[a-zA-Z0-9._%+-]+@uark\.edu$/;
-
-            emailInput.addEventListener('input', function() {
-                validateField(emailInput, emailError, emailPattern);
-            });
-
             document.querySelector('form').addEventListener('submit', function(e) {
                 let valid = true;
 
@@ -156,25 +137,65 @@
                 const confirmPasswordError = document.getElementById('confirm-password-error');
 
                 if (password !== confirmPassword) {
-                    document.getElementById('confirm-password').classList.add('invalid');
                     confirmPasswordError.style.display = 'inline';
+                    document.getElementById('confirm-password').classList.add('invalid');
                     valid = false;
                 } else {
-                    document.getElementById('confirm-password').classList.remove('invalid');
                     confirmPasswordError.style.display = 'none';
+                    document.getElementById('confirm-password').classList.remove('invalid');
                 }
 
-                // Check for empty fields
-                const requiredFields = ['first-name', 'last-name', 'email', 'age', 'username'];
+                // Check for empty fields and validation errors
+                const requiredFields = ['first-name', 'last-name', 'email', 'age', 'username', 'password'];
                 requiredFields.forEach(function(field) {
                     const input = document.getElementById(field);
                     const errorElement = document.getElementById(field + '-error');
-                    validateField(input, errorElement);
+                    if (!input.value) {
+                        errorElement.style.display = 'inline';
+                        input.classList.add('invalid');
+                        valid = false;
+                    } else if (!input.checkValidity()) {
+                        errorElement.style.display = 'inline';
+                        input.classList.add('invalid');
+                        valid = false;
+                    } else {
+                        errorElement.style.display = 'none';
+                        input.classList.remove('invalid');
+                    }
                 });
 
                 // Prevent form submission if there are errors
                 if (!valid) {
                     e.preventDefault();
+                }
+            });
+
+            // Real-time validation for the @uark.edu email
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            
+            emailInput.addEventListener('input', function() {
+                const emailPattern = /[a-zA-Z0-9._%+-]+@uark\.edu$/;
+                if (!emailPattern.test(emailInput.value) || !emailInput.value) {
+                    emailInput.classList.add('invalid');
+                    emailError.style.display = 'inline';
+                } else {
+                    emailInput.classList.remove('invalid');
+                    emailError.style.display = 'none';
+                }
+            });
+
+            // Real-time validation for age (at least 17)
+            const ageInput = document.getElementById('age');
+            const ageError = document.getElementById('age-error');
+
+            ageInput.addEventListener('input', function() {
+                if (ageInput.value < 17 || !ageInput.value) {
+                    ageInput.classList.add('invalid');
+                    ageError.style.display = 'inline';
+                } else {
+                    ageInput.classList.remove('invalid');
+                    ageError.style.display = 'none';
                 }
             });
         </script>
