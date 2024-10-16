@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Account Creation</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Create Account</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+    <style>
+        /* Add styles for invalid inputs */
+        .invalid {
+            border-color: red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabName).style.display = 'block';
+ 
+            const buttons = document.querySelectorAll('.sidebar .tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`.sidebar .tab-button[data-tab="${tabName}"]`).classList.add('active');
+        }
+ 
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab('overview');
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>Create an Account</h1>
+        <nav>
+            <a href="demo_homepage.html" class="home-link">
+                <span class="material-icons">home</span> Home
+            </a>
+            <ul>
+                <li><a href="about.html"><span class="material-icons">info</span> About</a></li>
+                <li><a href="account-info.html"><span class="material-icons">person</span> Account Info</a></li>
+                <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
+                <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
+        <!-- Title added here -->
+        <h1>Account Creation</h1>
+
         <form id="account-form">
             <!-- Form Fields -->
             <div class="form-group">
@@ -20,57 +60,71 @@
                 <input type="text" id="first-name" name="first-name" required>
                 <span class="error-message">First name is required.</span>
             </div>
-            
+           
             <div class="form-group">
                 <label for="last-name">Last Name:</label>
                 <input type="text" id="last-name" name="last-name" required>
                 <span class="error-message">Last name is required.</span>
             </div>
-
+ 
             <div class="form-group">
                 <label for="email">Email (@uark.edu):</label>
-                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@uark\.edu" required>
+                <input type="email" id="email" name="email" required>
                 <span class="error-message">Email must end with @uark.edu.</span>
             </div>
-
+ 
             <div class="form-group">
                 <label for="age">Age (17+):</label>
                 <input type="number" id="age" name="age" min="17" required>
                 <span class="error-message">Age must be at least 17.</span>
             </div>
-
+ 
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <span class="error-message">Username is required.</span>
             </div>
-
+ 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" 
+                <input type="password" id="password" name="password"
                     pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" required>
                 <span class="error-message">Password must be at least 9 characters long with numbers and symbols.</span>
             </div>
-
+ 
             <div class="form-group">
                 <label for="confirm-password">Confirm Password:</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
                 <span class="error-message">Passwords do not match.</span>
             </div>
-
+ 
             <button type="submit">Submit</button>
         </form>
-
+ 
         <script>
             document.getElementById('account-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 let formValid = true;
 
-                const fields = ['first-name', 'last-name', 'email', 'age', 'username', 'password', 'confirm-password'];
+                // Email validation for @uark.edu
+                const emailInput = document.getElementById('email');
+                const emailError = emailInput.nextElementSibling;
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@uark\.edu$/;
+
+                if (!emailPattern.test(emailInput.value)) {
+                    emailInput.classList.add('invalid');
+                    emailError.style.display = 'inline';
+                    formValid = false;
+                } else {
+                    emailInput.classList.remove('invalid');
+                    emailError.style.display = 'none';
+                }
+
+                const fields = ['first-name', 'last-name', 'age', 'username', 'password', 'confirm-password'];
                 fields.forEach(field => {
                     const input = document.getElementById(field);
                     const error = input.nextElementSibling;
-                    
+                   
                     if (!input.checkValidity() || (field === 'confirm-password' && input.value !== document.getElementById('password').value)) {
                         input.classList.add('invalid');
                         error.style.display = 'inline';
@@ -80,15 +134,17 @@
                         error.style.display = 'none';
                     }
                 });
-
+ 
                 if (formValid) {
                     alert('Form submitted successfully!');
                 }
             });
         </script>
     </main>
-    <footer>
-        <p>&copy; 2024 Campus Trading Platform</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="about.html"><span class="material-icons">info</span> About</a>
+        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
 </body>
 </html>
