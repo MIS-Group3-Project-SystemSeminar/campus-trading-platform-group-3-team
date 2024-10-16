@@ -71,6 +71,37 @@ nav a:hover {
     vertical-align: middle;
 }
 
+/* Search Section */
+.search-section {
+    display: flex;
+    align-items: center;
+}
+
+.search-section input {
+    padding: 0.5rem;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none; /* Remove outline on focus */
+    width: 200px; /* Fixed width for modern appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.search-section button {
+    margin-left: 5px;
+    background-color: #9D2235; /* Cardinal Red */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem; /* Adjusted padding */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-section button:hover {
+    background-color: #7C1F2E; /* Darker shade for hover */
+}
+
 /* Main Content */
 main {
     flex: 1;
@@ -92,6 +123,24 @@ h1 {
 p {
     font-size: 1.1rem;
     color: #555;
+}
+
+/* Latest Listings and Ending Soon Sections */
+.latest-listings, .ending-soon {
+    margin-top: 1.5rem;
+}
+
+.latest-listings ul, .ending-soon ul {
+    list-style: none;
+    padding: 0;
+}
+
+.latest-listings li, .ending-soon li {
+    background-color: #F9F9F9; /* Light background for list items */
+    margin: 0.5rem 0; /* Spacing between items */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Sticky Footer */
@@ -173,5 +222,14 @@ a:focus, button:focus {
 
     p {
         font-size: 1rem;
+    }
+
+    .search-section {
+        flex-direction: column; /* Stack search input and button */
+        margin-top: 10px; /* Add space above */
+    }
+
+    .search-section input {
+        width: 100%; /* Full width on smaller screens */
     }
 }
