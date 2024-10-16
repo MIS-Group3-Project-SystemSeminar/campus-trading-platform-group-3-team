@@ -83,35 +83,32 @@
             <!-- First Name Field -->
             <label for="first-name">First Name:</label>
             <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
-            <span class="error-message" id="first-name-error">First name is required.</span>
             <br><br>
 
             <!-- Last Name Field -->
             <label for="last-name">Last Name:</label>
             <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
-            <span class="error-message" id="last-name-error">Last name is required.</span>
             <br><br>
 
-            <!-- Email Field -->
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <span class="error-message" id="email-error">Please enter a valid email.</span>
+            <!-- Email Field with @uark.edu restriction -->
+            <label for="email">Email (must be a @uark.edu address):</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" 
+                   pattern="[a-zA-Z0-9._%+-]+@uark\.edu$" title="Email must end with @uark.edu" required>
+            <span class="error-message" id="email-error">Please enter a valid @uark.edu email.</span>
             <br><br>
 
             <!-- Age Field -->
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" placeholder="Enter your age" required>
-            <span class="error-message" id="age-error">Age is required.</span>
             <br><br>
 
             <!-- Username Field -->
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            <span class="error-message" id="username-error">Username is required.</span>
             <br><br>
 
             <!-- Password Field -->
-            <label for="password">Password (min 9 characters, with numbers & symbols):</label>
+            <label for="password">Password (min 9 characters, must have at least 1 number and 1 symbol):</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" 
                 pattern="(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{9,}" title="Password must be at least 9 characters long and include at least one number and one special character." required>
             <span class="error-message" id="password-error">Password must be at least 9 characters long and include numbers and symbols.</span>
