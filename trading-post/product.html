@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Account Settings</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!-- Link to external stylesheet -->
-	<link rel="stylesheet" href="../assets/css/trading-post-style.css">
-	<script>
-		function showTab(tabName) {
-			const tabs = document.querySelectorAll('.tab-content');
-			tabs.forEach(tab => tab.style.display = 'none');
-			document.getElementById(tabName).style.display = 'block';
-
-			const buttons = document.querySelectorAll('.sidebar .tab-button');
-			buttons.forEach(button => button.classList.remove('active'));
-			document.querySelector(`.sidebar .tab-button[data-tab="${tabName}"]`).classList.add('active');
-		}
-
-		document.addEventListener('DOMContentLoaded', () => {
-			showTab('overview');
-		});
-	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Page Placeholder">
+    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Product Page</title>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
     <header>
         <nav>
             <a href="demo_homepage.html" class="home-link">
@@ -38,79 +25,40 @@
             </ul>
         </nav>
     </header>
-	<div class="container">
-		<div class="sidebar">
-			<!-- Modernized sidebar with buttons for better organization -->
-			<button class="tab-button active" data-tab="overview" onclick="showTab('overview')">
-				Account Overview
-			</button>
-			<button class="tab-button" data-tab="account-info" onclick="showTab('account-info')">
-				Update Account Information
-			</button>
-			<button class="tab-button" data-tab="email-settings" onclick="showTab('email-settings')">
-				Change Email
-			</button>
-			<button class="tab-button" data-tab="password-settings" onclick="showTab('password-settings')">
-				Change Password
-			</button>
-		</div>
-		<div class="content">
-			<!-- Account Overview -->
-			<div id="overview" class="tab-content">
-				<h2>Account Overview</h2>
-				<div class="overview-details">
-					<p><strong>Username:</strong> johndoe123</p>
-					<p><strong>Email:</strong> johndoe@example.com</p>
-					<p><strong>Phone Number:</strong> +1 123-456-7890</p>
-				</div>
-			</div>
-			<!-- Update Account Information -->
-			<div id="account-info" class="tab-content" style="display: none;">
-				<h2>Update Account Information</h2>
-				<form>
-					<div class="form-group">
-						<label for="username">Username</label>
-						<input type="text" id="username" name="username" placeholder="Enter your username">
-					</div>
-					<div class="form-group">
-						<label for="phone">Phone Number</label>
-						<input type="text" id="phone" name="phone" placeholder="Enter your phone number">
-					</div>
-					<button type="submit" class="save-btn">Save Changes</button>
-				</form>
-			</div>
-			<!-- Change Email -->
-			<div id="email-settings" class="tab-content" style="display: none;">
-				<h2>Change Email</h2>
-				<form>
-					<div class="form-group">
-						<label for="email">New Email Address</label>
-						<input type="email" id="email" name="email" placeholder="Enter your new email">
-					</div>
-					<button type="submit" class="save-btn">Update Email</button>
-				</form>
-			</div>
-			<!-- Change Password -->
-			<div id="password-settings" class="tab-content" style="display: none;">
-				<h2>Change Password</h2>
-				<form>
-					<div class="form-group">
-						<label for="password">New Password</label>
-						<input type="password" id="password" name="password" placeholder="Enter a new password">
-					</div>
-					<div class="form-group">
-						<label for="confirm-password">Confirm New Password</label>
-						<input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password">
-					</div>
-					<button type="submit" class="save-btn">Update Password</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-	<footer class="footer">
-		<a href="about.html"><span class="material-icons">info</span> About</a>
-		<a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
-	</footer>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Product Details</h1>
+
+        <!-- Product Image Section -->
+        <section class="product-image">
+            <h2>Product Image</h2>
+            <img src="#" alt="Product Image Placeholder" class="image-placeholder">
+        </section>
+
+        <!-- Product Information Section -->
+        <section class="product-info">
+            <h2>Product Title</h2>
+            <p>This is a placeholder for the product title.</p>
+
+            <h2>Product Description</h2>
+            <p>This is a placeholder for the product description, which will explain the product features and benefits.</p>
+
+            <h2>Price</h2>
+            <p class="price-placeholder">$0.00</p>
+        </section>
+
+        <!-- Buttons Section -->
+        <div class="product-actions">
+            <button class="btn">Purchase</button>
+            <button class="btn">Add to Cart</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="about.html"><span class="material-icons">info</span> About</a>
+        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
+    </footer>
 </body>
 </html>
