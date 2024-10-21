@@ -10,8 +10,5 @@ steps:
   # Checkout the GitHub repository using the service connection
   - checkout: self
     persistCredentials: true
-
-- script: |
-    echo "Using GitHub PAT from a variable"
-    echo "$(github_pat)"
-  displayName: 'Use PAT'
+  - script: echo "Building the project..."
+    displayName: 'Build Project'
