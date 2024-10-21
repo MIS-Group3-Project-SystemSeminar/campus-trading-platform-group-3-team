@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  # Checkout the GitHub repository using the service connection
+  - checkout: self
+    persistCredentials: true
+
+- script: |
+    echo "Using GitHub PAT from a variable"
+    echo "$(github_pat)"
+  displayName: 'Use PAT'
