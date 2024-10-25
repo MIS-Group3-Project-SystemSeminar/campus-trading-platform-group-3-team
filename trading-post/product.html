@@ -3,62 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Product Page Placeholder">
-    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sophisticated Dress</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Product Page</title>
+    <style>
+        /* Custom styles will go here */
+        body {
+            font-family: sans-serif;
+        }
+        .carousel-item img {
+            height: 400px; /* Adjust as needed */
+            object-fit: cover; 
+        }
+        .star-rating {
+            color: gold; 
+        }
+        .price-original {
+            text-decoration: line-through; 
+            color: #999; 
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background-color: #000; 
+            border-color: #000; 
+        }
+        .btn-primary:hover {
+            background-color: #333; 
+            border-color: #333;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <a href="demo_homepage.html" class="home-link">
-                <span class="material-icons">home</span> Home
-            </a>
-            <ul>
-                <li><a href="about.html"><span class="material-icons">info</span> About</a></li>
-                <li><a href="account-info.html"><span class="material-icons">person</span> Account Info</a></li>
-                <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
-                <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <h1>Product Details</h1>
-
-        <!-- Product Image Section -->
-        <section class="product-image">
-            <h2>Product Image</h2>
-            <img src="#" alt="Product Image Placeholder" class="image-placeholder">
-        </section>
-
-        <!-- Product Information Section -->
-        <section class="product-info">
-            <h2>Product Title</h2>
-            <p>This is a placeholder for the product title.</p>
-
-            <h2>Product Description</h2>
-            <p>This is a placeholder for the product description, which will explain the product features and benefits.</p>
-
-            <h2>Price</h2>
-            <p class="price-placeholder">$0.00</p>
-        </section>
-
-        <!-- Buttons Section -->
-        <div class="product-actions">
-            <button class="btn">Purchase</button>
-            <button class="btn">Add to Cart</button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Group 3 - TRADING POST </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About       </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login       </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </main>
+    </nav>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="about.html"><span class="material-icons">info</span> About</a>
-        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
-    </footer>
+    <div class="container mt-5"> 
+        <div class="row">
+            <div class="col-md-6">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="dress-image-1.jpg" class="d-block w-100" alt="Dress Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="dress-image-2.jpg" class="d-block w-100" alt="Dress Image 2">
+                        </div>
+                        </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>PRODUCT TITLE </h1>
+                <div class="rating">
+                    <span class="material-icons star-rating">star</span>
+                    <span class="material-icons star-rating">star</span>
+                    <span class="material-icons star-rating">star</span>
+                    <span class="material-icons star-rating">star</span>
+                    <span class="material-icons star-rating">star_half</span>
+                    <span>4/5 (123 reviews)</span>
+                </div>
+                <div class="price">
+                    <span class="price-original">$60</span>
+                    <span class="price-current">$45</span>
+                </div>
+                <p>This is a placeholder for the product description, which will explain the product features and benefits.</p>
+                <div class="form-group">
+                    <label for="sizeSelect">Size:</label>
+                    <select class="form-control" id="sizeSelect">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" class="form-control" id="quantity" value="1" min="1">
+                </div>
+                <div><p>________________</p></div>
+                <button class="btn btn-primary">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
