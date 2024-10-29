@@ -10,7 +10,6 @@
     <title>Campus Trading Post</title>
 </head>
 
-
 <body>
     <!-- Navigation Bar --->
     <header>
@@ -24,7 +23,8 @@
                 <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
                 <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
             </ul>
-
+            <!-- Include Search Bar within the navigation but align it to the right -->
+            <div id="search-bar-container"></div>
         </nav>
     </header>
 
@@ -32,7 +32,6 @@
     <main>
         <h1>Welcome to the Campus Trading Post</h1>
         <p>Buy, sell, and trade items with your campus community!</p>
-
 
         <!-- Latest Listings Section -->
         <section class="latest-listings">
@@ -45,10 +44,11 @@
             <h2>Ending Soon</h2>
             placeholder
         </section>
+
         <a href="product.html">
             <button class="btn">Check out the placeholder Product Listing page!</button>
         </a>
-        
+
         <button class="btn">Browse Listings</button>
     </main>
 
@@ -57,5 +57,18 @@
         <a href="about.html"><span class="material-icons">info</span> About</a>
         <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
+
+    <!-- JavaScript to Load Search Bar Template -->
+    <script>
+        // Fetch and insert the search bar template
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('search-bar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('search-bar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading search bar:', error));
+        });
+    </script>
 </body>
 </html>
