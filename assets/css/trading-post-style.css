@@ -8,24 +8,23 @@
 html {
     font-size: 100%;
     scroll-behavior: smooth;
-    height: 100%;  /* Ensure height covers the full viewport */
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #68C1BE; /* Blue Winged Teal */
-    color: #655765; /* Spiderwort */
+    font-family: Arial, sans-serif;
+    background-color: #68C1BE; /* Matches original background */
+    color: #655765; /* Matches text color */
     line-height: 1.6;
     padding: 0;
-    margin: 0;  /* Fix margin */
-    min-height: 100vh;  /* Ensure body takes up full viewport */
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #2B5269; /* Diana Butterfly */
+    background-color: #2B5269; /* Original dark blue header */
     padding: 1rem;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,10 +38,10 @@ nav {
 }
 
 nav .home-link {
-    color: #FFFFFF; /* Apple Blossom */
+    color: #FFFFFF; /* White for the home link */
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: bold; /* Make the Home link bold */
+    font-weight: bold;
 }
 
 nav ul {
@@ -54,14 +53,14 @@ nav ul {
 }
 
 nav a {
-    color: #FFFFFF; /* Apple Blossom */
+    color: #FFFFFF; /* White for navigation links */
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #F2F2F4; /* Quartz */
+    color: #F2F2F4; /* Lighter shade for hover effect */
 }
 
 /* Home link icon */
@@ -75,31 +74,40 @@ nav a:hover {
 .search-section {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 .search-section input {
     padding: 0.5rem;
-    margin-left: 10px;
     border: none;
     border-radius: 4px;
-    outline: none; /* Remove outline on focus */
-    width: 200px; /* Fixed width for modern appearance */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    outline: none;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search-section input::placeholder {
+    color: #888888; /* Placeholder text color */
 }
 
 .search-section button {
     margin-left: 5px;
-    background-color: #9D2235; /* Cardinal Red */
+    background-color: #9D2235; /* Cardinal red */
     color: white;
     border: none;
-    padding: 0.5rem 1rem; /* Adjusted padding */
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .search-section button:hover {
-    background-color: #7C1F2E; /* Darker shade for hover */
+    background-color: #7C1F2E; /* Darker red on hover */
+}
+
+.search-section button .material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 /* Main Content */
@@ -109,14 +117,14 @@ main {
     margin: 2rem auto;
     padding: 1.5rem;
     width: 100%;
-    background-color: #FFFFFF; /* Apple Blossom */
-    border-radius: 8px; /* Rounded corners for a modern feel */
+    background-color: #FFFFFF;
+    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     font-size: 2.2rem;
-    color: #2B5269; /* Diana Butterfly */
+    color: #2B5269;
     margin-bottom: 1rem;
 }
 
@@ -125,56 +133,9 @@ p {
     color: #555;
 }
 
-/* Latest Listings and Ending Soon Sections */
-.latest-listings, .ending-soon {
-    margin-top: 1.5rem;
-}
-
-.latest-listings ul, .ending-soon ul {
-    list-style: none;
-    padding: 0;
-}
-
-.latest-listings li, .ending-soon li {
-    background-color: #F9F9F9; /* Light background for list items */
-    margin: 0.5rem 0; /* Spacing between items */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Sticky Footer */
-.footer {
-    background-color: #655765; /* Spiderwort */
-    color: #FFFFFF; /* Apple Blossom */
-    padding: 20px 0; /* Padding around content */
-    text-align: center; /* Center text */
-    width: 100%; /* Full width */
-    position: fixed; /* Sticks to bottom of page */
-    bottom: 0; /* Sticks to bottom */
-    left: 0; /* Aligns with left edge */
-}
-
-.footer a {
-    color: #FFFFFF; /* Apple Blossom */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Slightly larger font */
-    margin: 0 15px; /* Space between links */
-    display: inline-flex; /* Flexbox for icon and text */
-    align-items: center; /* Vertically center icon */
-}
-
-.footer a span {
-    margin-right: 5px; /* Space between icon and text */
-}
-
-.footer a:hover {
-    color: #F2F2F4; /* Quartz */
-}
-
 /* Buttons */
 button, .btn {
-    background-color: #ff6347; /* Bright call-to-action color */
+    background-color: #ff6347; /* Bright orange */
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -185,16 +146,43 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-    background-color: #ff4500; /* Darker shade for hover effect */
+    background-color: #ff4500; /* Darker orange on hover */
 }
 
 button:focus, .btn:focus {
-    outline: 2px solid #ffe4b5; /* Light focus outline for accessibility */
+    outline: 2px solid #ffe4b5;
+    outline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+    background-color: #655765; /* Original footer color */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer a:hover {
+    color: #ff6347; /* Orange for hover effect */
 }
 
 /* Accessibility */
 a:focus, button:focus {
-    outline: 2px solid #ffe4b5;
+    outline: 2px solid #ff6347; /* High-visibility focus outline */
     outline-offset: 2px;
 }
 
@@ -202,34 +190,5 @@ a:focus, button:focus {
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    main {
-        padding: 1rem 0.5rem;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .search-section {
-        flex-direction: column; /* Stack search input and button */
-        margin-top: 10px; /* Add space above */
-    }
-
-    .search-section input {
-        width: 100%; /* Full width on smaller screens */
     }
 }
