@@ -1,4 +1,4 @@
-// js/firebase.js
+// js/firebase.js 
 
 // Import Firebase SDKs (required if you're using module syntax)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js";
@@ -16,7 +16,7 @@ const firebaseConfig = {
   };
   
 
-// Initialize Firebase
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
