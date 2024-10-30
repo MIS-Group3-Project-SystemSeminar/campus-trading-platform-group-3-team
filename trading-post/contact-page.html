@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="home-link">
+        <span class="material-icons">home</span> Home
+      </a>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact-page">
+      <h1>Contact Us</h1>
+      <p>Have a question or need support? Reach out to us using the form below.</p>
+      <form id="contact-form">
+        <label for="name">Name <span style="color: #ff6347;">(Required)</span></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address <span style="color: #ff6347;">(Required)</span></label>
+        <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+        <label for="subject">Subject (Optional)</label>
+        <input type="text" id="subject" name="subject">
+
+        <label for="message">Message <span style="color: #ff6347;">(Required)</span></label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+      <p id="confirmation-message" style="display:none; color: #32cd32;">Thank you! Your message was sent successfully.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Your Company. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
