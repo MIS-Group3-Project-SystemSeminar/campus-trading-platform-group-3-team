@@ -8,10 +8,77 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Campus Trading Post</title>
+    <style>
+        /* Carousel Styles */
+        * {
+            box-sizing: border-box;
+        }
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .mySlides {
+            display: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+        .mySlides img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 50px;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from { opacity: .4; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation Bar --->
+    <!-- Navigation Bar -->
     <header>
         <nav>
             <a href="demo_homepage.html" class="home-link">
@@ -23,7 +90,6 @@
                 <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
                 <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
             </ul>
-            <!-- Include Search Bar within the navigation but align it to the right -->
             <div id="search-bar-container"></div>
         </nav>
     </header>
@@ -31,15 +97,41 @@
     <!-- Main Content -->
     <main>
         <h1>Welcome to the Campus Trading Post</h1>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="https://i5.walmartimages.com/asr/7dd4b5f0-793b-4821-9922-9d23b5a8675b_1.2af31bfc67826db280f35f4e5b4166aa.jpeg" style="width:50%">
+                <div class="text">Funky Gel Pens</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="https://th.bing.com/th/id/OIP.Yuhj1Vx10hWKUGnB2rYQkwHaFj?rs=1&pid=ImgDetMain" style="width:50%">
+                <div class="text">Razorbacks</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="https://i5.walmartimages.com/asr/84a1624d-5620-4575-9ab5-26403a05cc1a_1.2d6846a520f233d4735bc50717684dd0.jpeg" style="width:50%">
+                <div class="text">Graphing Calculator</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
         <p>Buy, sell, and trade items with your campus community!</p>
 
-        <!-- Latest Listings Section -->
         <section class="latest-listings">
             <h2>Latest Listings</h2>
             placeholder
         </section>
 
-        <!-- Ending Soon Section -->
         <section class="ending-soon">
             <h2>Ending Soon</h2>
             placeholder
@@ -48,7 +140,6 @@
         <a href="product.html">
             <button class="btn">Check out the placeholder Product Listing page!</button>
         </a>
-
         <button class="btn">Browse Listings</button>
     </main>
 
@@ -58,54 +149,47 @@
         <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
 
-    <!-- Messaging Panel -->
-    <div id="messaging-panel">
-        <div class="message-thread">
-            <div class="message-item">
-                <strong>Seller 1</strong><br>
-                "Is this item still available?"
-            </div>
-            <div class="message-item">
-                <strong>Seller 2</strong><br>
-                "Let me know if you're interested in the price drop!"
-            </div>
-            <div class="message-item">
-                <strong>Seller 3</strong><br>
-                "Thanks for reaching out, I’ll send more details soon."
-            </div>
-        </div>
-    </div>
-
-    <!-- Messaging Icon -->
-    <div id="messaging-icon" onclick="toggleMessagingPanel()">
-        <span class="material-icons">chat</span>
-    </div>
-
-    <!-- JavaScript to Toggle Panel -->
+    <!-- JavaScript for Carousel -->
     <script>
-        // Function to toggle the messaging panel visibility
-        function toggleMessagingPanel() {
-            var panel = document.getElementById('messaging-panel');
-            if (panel.style.display === "none" || panel.style.display === "") {
-                panel.style.display = "block";  // Show the panel
-            } else {
-                panel.style.display = "none";   // Hide the panel
-            }
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
         }
-    </script>
 
-    <!-- JavaScript to Load Search Bar Template -->
-    <script>
-        // Fetch and insert the search bar template
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('search-bar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('search-bar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading search bar:', error));
-        });
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function autoSlideShow() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(autoSlideShow, 2000);
+        }
+        autoSlideShow();
     </script>
 </body>
 </html>
- 
