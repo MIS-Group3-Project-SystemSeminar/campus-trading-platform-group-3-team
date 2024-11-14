@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Campus Trading Post</title>
     <style>
+        /* Carousel Styles */
         * {
             box-sizing: border-box;
         }
-
-        /* Slideshow container */
         .slideshow-container {
             max-width: 1000px;
             position: relative;
@@ -22,8 +20,6 @@
             padding-left: 50px;
             padding-right: 50px;
         }
-
-        /* Center the images within the slideshow */
         .mySlides {
             display: none;
             text-align: center;
@@ -31,27 +27,17 @@
             justify-content: center;
             align-items: center;
             height: 400px;
-            /* Fixed height to keep the layout stable */
         }
-
-        /* Image styling */
         .mySlides img {
             max-width: 100%;
-            /* Prevents images from exceeding container width */
             height: 100%;
-            /* Maintain the full height of the container */
             object-fit: cover;
-            /* Ensures image fills the container without stretching */
         }
-
-        /* Next & previous buttons */
-        .prev,
-        .next {
+        .prev, .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
             width: auto;
-            margin-top: -22px;
             padding: 16px;
             color: white;
             font-weight: bold;
@@ -60,38 +46,13 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
         }
-
         .next {
             right: 50px;
             border-radius: 3px 0 0 3px;
         }
-
-        .prev:hover,
-        .next:hover {
+        .prev:hover, .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
-        /* Caption text */
-        .text {
-            color: #010000;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #020101;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
         .dot {
             cursor: pointer;
             height: 15px;
@@ -102,32 +63,22 @@
             display: inline-block;
             transition: background-color 0.6s ease;
         }
-
-        .active,
-        .dot:hover {
+        .active, .dot:hover {
             background-color: #717171;
         }
-
-        /* Fading animation */
         .fade {
             animation-name: fade;
             animation-duration: 1.5s;
         }
-
         @keyframes fade {
-            from {
-                opacity: .4;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: .4; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navigation Bar --->
+    <!-- Navigation Bar -->
     <header>
         <nav>
             <a href="demo_homepage.html" class="home-link">
@@ -138,10 +89,7 @@
                 <li><a href="account-info.html"><span class="material-icons">person</span> Account Info</a></li>
                 <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
                 <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
-                <li><a href="contact-page.html"><span class="material-icons">contact_mail</span> Contact Us</a></li>
-                <!-- New contact link added -->
             </ul>
-            <!-- Include Search Bar within the navigation but align it to the right -->
             <div id="search-bar-container"></div>
         </nav>
     </header>
@@ -150,57 +98,40 @@
     <main>
         <h1>Welcome to the Campus Trading Post</h1>
 
-
         <!-- Slideshow container -->
         <div class="slideshow-container">
-
-            <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="https://i5.walmartimages.com/asr/7dd4b5f0-793b-4821-9922-9d23b5a8675b_1.2af31bfc67826db280f35f4e5b4166aa.jpeg"
-                    style="width:50%">
-                <div class="Text">Funky Gel Pens</div>
+                <img src="https://i5.walmartimages.com/asr/7dd4b5f0-793b-4821-9922-9d23b5a8675b_1.2af31bfc67826db280f35f4e5b4166aa.jpeg" style="width:50%">
+                <div class="text">Funky Gel Pens</div>
             </div>
-
             <div class="mySlides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="https://th.bing.com/th/id/OIP.Yuhj1Vx10hWKUGnB2rYQkwHaFj?rs=1&pid=ImgDetMain"
-                    style="width:50%">
+                <img src="https://th.bing.com/th/id/OIP.Yuhj1Vx10hWKUGnB2rYQkwHaFj?rs=1&pid=ImgDetMain" style="width:50%">
                 <div class="text">Razorbacks</div>
             </div>
-
             <div class="mySlides fade">
                 <div class="numbertext">3 / 3</div>
-                <img src="https://i5.walmartimages.com/asr/84a1624d-5620-4575-9ab5-26403a05cc1a_1.2d6846a520f233d4735bc50717684dd0.jpeg"
-                    style="width:50%">
+                <img src="https://i5.walmartimages.com/asr/84a1624d-5620-4575-9ab5-26403a05cc1a_1.2d6846a520f233d4735bc50717684dd0.jpeg" style="width:50%">
                 <div class="text">Graphing Calculator</div>
             </div>
-
-            <!-- Next and previous buttons -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
-
-        <!-- The dots/circles -->
         <div style="text-align:center">
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
-
-
-
         <p>Buy, sell, and trade items with your campus community!</p>
 
-        <!-- Latest Listings Section -->
         <section class="latest-listings">
             <h2>Latest Listings</h2>
             placeholder
         </section>
 
-        <!-- Ending Soon Section -->
         <section class="ending-soon">
             <h2>Ending Soon</h2>
             placeholder
@@ -209,7 +140,6 @@
         <a href="product.html">
             <button class="btn">Check out the placeholder Product Listing page!</button>
         </a>
-
         <button class="btn">Browse Listings</button>
     </main>
 
@@ -219,28 +149,15 @@
         <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
 
-    <!-- JavaScript to Load Search Bar Template -->
+    <!-- JavaScript for Carousel -->
     <script>
-        // Fetch and insert the search bar template
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('search-bar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('search-bar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading search bar:', error));
-        });
-
-
         let slideIndex = 1;
         showSlides(slideIndex);
 
-        // Next/previous controls
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
 
-        // Thumbnail image controls
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
@@ -261,10 +178,7 @@
             dots[slideIndex - 1].className += " active";
         }
 
-
-        showSlides();
-
-        function showSlides() {
+        function autoSlideShow() {
             let i;
             let slides = document.getElementsByClassName("mySlides");
             for (i = 0; i < slides.length; i++) {
@@ -273,10 +187,9 @@
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1 }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
+            setTimeout(autoSlideShow, 2000);
         }
-
+        autoSlideShow();
     </script>
 </body>
-
 </html>

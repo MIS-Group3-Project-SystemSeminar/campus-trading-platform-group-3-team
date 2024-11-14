@@ -68,7 +68,10 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h1>PRODUCT TITLE </h1>
+                <h1>PRODUCT TITLE</h1>
+                
+                <p>Sold by: <a href="seller-profile.html">Seller Name</a></p>
+
                 <div class="rating">
                     <span class="material-icons star-rating">star</span>
                     <span class="material-icons star-rating">star</span>
@@ -77,6 +80,11 @@
                     <span class="material-icons star-rating">star_half</span>
                     <span>4/5 (123 reviews)</span>
                 </div>
+
+                <button id="favoriteButton" class="btn btn-light">
+                    🤍 Favorite Item
+                </button>
+
                 <div class="price">
                     <span class="price-original">$30</span>
                     <span class="price-current">$30</span>
@@ -101,6 +109,19 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoriteButton = document.getElementById('favoriteButton');
+            favoriteButton.addEventListener('click', function() {
+                favoriteButton.classList.toggle('favorited');
+                if (favoriteButton.classList.contains('favorited')) {
+                    favoriteButton.innerHTML = '❤️ Favorite';
+                } else {
+                    favoriteButton.innerHTML = '🤍 Favorite Item';
+                }
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">

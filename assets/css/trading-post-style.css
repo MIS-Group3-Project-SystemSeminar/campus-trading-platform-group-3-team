@@ -161,7 +161,7 @@ button:focus, .btn:focus {
     text-align: center;
     padding: 1rem;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
@@ -192,3 +192,57 @@ a:focus, button:focus {
         transition: none !important;
     }
 }
+
+/* Basic Styles for Messaging Panel */
+#messaging-panel {
+    position: fixed;
+    right: 10px;
+    bottom: 70px; /* Adjusted to avoid overlap with footer */
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+#messaging-icon {
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    background-color: #0078d4;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 36px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 72px;  /* Match the container width to be twice the font-size */
+    height: 72px; /* Match the container height to be twice the font-size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#messaging-icon:hover {
+    background-color: #005a8b; /* Darker blue on hover */
+}
+
+.message-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.message-item:hover {
+    background-color: #f4f4f4;
+}
+
+.message-thread {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+ 
