@@ -74,6 +74,7 @@
             from { opacity: .4; }
             to { opacity: 1; }
         }
+        
     </style>
 </head>
 
@@ -90,9 +91,13 @@
                 <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
                 <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
             </ul>
-            <div id="search-bar-container"></div>
+            <div id="search-bar-container" class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><span class="material-icons">search</span></button>
+            </div>
         </nav>
     </header>
+    
 
     <!-- Main Content -->
     <main>
@@ -126,7 +131,8 @@
         </div>
 
         <p>Buy, sell, and trade items with your campus community!</p>
-
+        <!-- Links to Demo Pages -->
+        <section class="demo-links">
         <section class="latest-listings">
             <h2>Latest Listings</h2>
             placeholder
@@ -141,13 +147,51 @@
             <button class="btn">Check out the placeholder Product Listing page!</button>
         </a>
         <button class="btn">Browse Listings</button>
+        </a>
+        <a href="seller-profile.html">
+            <button class="btn">View Seller Profile</button>
+        </a>
+        <button class="btn">Browse Listings</button>
+    </section>
     </main>
+
 
     <!-- Footer -->
     <footer class="footer">
         <a href="about.html"><span class="material-icons">info</span> About</a>
         <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
+    <!-- Messaging Panel -->
+    <div id="messaging-panel">
+        <div class="message-thread">
+            <div class="message-item">
+                <strong>Seller 1</strong><br>
+                "Is this item still available?"
+            </div>
+            <div class="message-item">
+                <strong>Seller 2</strong><br>
+                "Let me know if you're interested in the price drop!"
+            </div>
+            <div class="message-item">
+                <strong>Seller 3</strong><br>
+                "Thanks for reaching out, I’ll send more details soon."
+            </div>
+        </div>
+    </div>
+
+    <!-- Messaging Icon -->
+    <div id="messaging-icon" onclick="toggleMessagingPanel()">
+        <span class="material-icons">chat</span>
+    </div>
+
+    <!-- JavaScript to Toggle Panel -->
+    <script>
+        // Function to toggle the messaging panel visibility
+        function toggleMessagingPanel() {
+            var panel = document.getElementById('messaging-panel');
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+        }
+    </script>
 
     <!-- JavaScript for Carousel -->
     <script>
@@ -190,6 +234,19 @@
             setTimeout(autoSlideShow, 2000);
         }
         autoSlideShow();
+    </script>
+    
+    <!-- JavaScript to Load Search Bar Template -->
+    <script>
+        // Fetch and insert the search bar template
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('search-bar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('search-bar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading search bar:', error));
+        });
     </script>
 </body>
 </html>
