@@ -6,6 +6,26 @@
     <title>Seller Profile</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+	<style>
+        /* Optional: Style the Follow/Unfollow button */
+        .follow-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green background for Follow */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .unfollow-btn {
+            background-color: #f44336; /* Red background for Unfollow */
+        }
+
+        .follow-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -32,6 +52,11 @@
             <img src="assets/images/default-profile.png" alt="Profile Picture" class="profile-pic">
             <h2>Seller Name</h2>
         </section>
+
+	<!-- Follow Button -->
+        <section class="follow-section">
+            <button id="followButton" class="follow-btn">Follow</button>
+        </section>
         
         <!-- Current Listings Section -->
         <section class="current-listings">
@@ -57,5 +82,23 @@
         <a href="about.html"><span class="material-icons">info</span> About</a>
         <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
     </footer>
+	 <!-- JavaScript to handle Follow/Unfollow -->
+    <script>
+        // Get the button element
+        const followButton = document.getElementById("followButton");
+
+        // Toggle follow/unfollow on click
+        followButton.addEventListener("click", function() {
+            if (followButton.textContent === "Follow") {
+                followButton.textContent = "Unfollow"; // Change text to 'Unfollow'
+                followButton.classList.add("unfollow-btn"); // Add 'unfollow' style
+                followButton.classList.remove("follow-btn"); // Remove 'follow' style
+            } else {
+                followButton.textContent = "Follow"; // Change text back to 'Follow'
+                followButton.classList.add("follow-btn"); // Add 'follow' style
+                followButton.classList.remove("unfollow-btn"); // Remove 'unfollow' style
+            }
+        });
+    </script>
 </body>
 </html>
