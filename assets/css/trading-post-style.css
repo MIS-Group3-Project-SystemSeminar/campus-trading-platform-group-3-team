@@ -156,16 +156,17 @@ button:focus, .btn:focus {
 
 /* Footer */
 .footer {
+    position: fixed; /* Sticks the footer to the viewport */
+    bottom: 0; /* Positions it at the bottom of the viewport */
+    left: 0; /* Aligns it to the left edge */
+    width: 100%; /* Ensures the footer spans the entire width */
     background-color: #655765; /* Original footer color */
-    color: #FFFFFF;
-    text-align: center;
-    padding: 1rem;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF; /* Text color */
+    text-align: center; /* Centers the content */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow for depth */
+    z-index: 900; /* Ensures the footer stays above other content */
 }
+
 
 .footer a {
     color: #FFFFFF;
@@ -195,69 +196,70 @@ a:focus, button:focus {
 
 /* Chatbot Styles */
 .chatbot-container {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    width: 300px;
-    height: 400px;
-    background-color: #f2f2f4;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Ensures the chatbot stays fixed on the screen */
+    right: 10px; /* Distance from the right edge of the screen */
+    bottom: 35px; /* Distance from the bottom edge of the screen */
+    width: 300px; /* Maintains the width of the chatbot */
+    height: 400px; /* Maintains the height of the chatbot */
+    background-color: #f2f2f4; /* Background color */
+    border: 1px solid #ddd; /* Border styling */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 8px;
-    overflow: hidden;
-    z-index: 1000;
+    flex-direction: column; /* Ensures content is stacked */
+    justify-content: space-between; /* Space around content */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Prevents content overflow */
+    z-index: 1000; /* Ensures the chatbot stays above other elements */
 }
 
 .chatbot-container.minimized {
-    height: 40px;
+    height: 40px; /* Collapsed height when minimized */
     overflow: hidden;
 }
 
 .chatbot-header {
-    background-color: #9D2235;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    background-color: #9D2235; /* Header background */
+    color: white; /* Text color */
+    padding: 10px; /* Space around text */
+    text-align: center; /* Centered text */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor for interaction */
 }
 
 .chatbot-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    font-size: 14px;
+    flex: 1; /* Grows to fill available space */
+    padding: 10px; /* Space inside the message container */
+    overflow-y: auto; /* Scrollable for excess content */
+    font-size: 14px; /* Font size for messages */
 }
 
 .chatbot-input {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    background-color: white;
+    display: flex; /* Horizontal layout */
+    padding: 10px; /* Space inside the input container */
+    border-top: 1px solid #ddd; /* Divider styling */
+    background-color: white; /* Background color */
 }
 
 .chatbot-input input {
-    flex: 1;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    flex: 1; /* Input takes up remaining space */
+    padding: 8px; /* Space inside the input field */
+    font-size: 14px; /* Font size for input text */
+    border: 1px solid #ddd; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
 }
 
 .chatbot-input button {
-    background-color: #9D2235;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    margin-left: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+    background-color: #9D2235; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Space inside the button */
+    margin-left: 5px; /* Space between input and button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interaction */
+    font-size: 14px; /* Font size for button text */
 }
+
 
 .chatbot-input button:hover {
     background-color: #7b1b2b;
@@ -265,8 +267,8 @@ a:focus, button:focus {
 /* Messaging Panel */
 #messaging-panel {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    left: 55px;
+    bottom: 35px;
     background-color: #FFFFFF; /* White background */
     border: 1px solid #ddd;
     width: 300px;
@@ -274,7 +276,8 @@ a:focus, button:focus {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     display: none; /* Hidden by default */
     overflow-y: auto;
-    z-index: 1000;
+    border-radius: 8px; /* Rounded corners */
+    z-index: 900;
 }
 
 .message-thread {
@@ -294,8 +297,8 @@ a:focus, button:focus {
 /* Messaging Icon */
 #messaging-icon {
     position: fixed;
-    left: 10px;
-    bottom: 10px;
+    left: 5px;
+    bottom: 35px;
     background-color: #2B5269; /* Dark blue */
     color: #FFFFFF; /* White */
     border-radius: 50%;
@@ -306,7 +309,7 @@ a:focus, button:focus {
     align-items: center;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
+    z-index: 1000;
 }
 
 #messaging-icon:hover {

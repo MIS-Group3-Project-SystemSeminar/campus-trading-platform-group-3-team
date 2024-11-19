@@ -13,6 +13,14 @@
         * {
             box-sizing: border-box;
         }
+                /* Updated text styling */
+        .text {
+            position: relative;
+            margin-top: 8px; /* Lower the text 5px from the carousel */
+            text-align: center;
+            font-size: 16px; /* Adjust as needed */
+            color: #000; /* Adjust text color */
+        }
         .slideshow-container {
             max-width: 1000px;
             position: relative;
@@ -159,11 +167,6 @@
     </main>
 
 
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="about.html"><span class="material-icons">info</span> About</a>
-        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
-    </footer>
     <!-- Messaging Panel -->
     <div id="messaging-panel">
         <div class="message-thread">
@@ -270,5 +273,7 @@
             chatbot.classList.toggle('minimized');
         }
     </script>
+        <!-- Footer -->
+        <script src="assets/js/footer-import.js"></script>
 </body>
 </html>
