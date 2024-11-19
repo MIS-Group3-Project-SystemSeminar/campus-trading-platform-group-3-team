@@ -8,21 +8,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="../assets/css/trading-post-style.css">
-    <script>
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.style.display = 'none');
-            document.getElementById(tabName).style.display = 'block';
- 
-            const buttons = document.querySelectorAll('.sidebar .tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-            document.querySelector(`.sidebar .tab-button[data-tab="${tabName}"]`).classList.add('active');
-        }
- 
-        document.addEventListener('DOMContentLoaded', () => {
-            showTab('overview');
-        });
-    </script>
 </head>
 <body>
  
@@ -59,13 +44,9 @@
         <p>This section will explain the history and background of the Trading Post.</p>
     </section>
 </main>
- 
+
+
     <!-- Footer -->
-    <footer class="footer">
-        <a href="about.html"><span class="material-icons">info</span> About</a>
-        <a href="../index.html"><span class="material-icons">exit_to_app</span> Exit Demo</a>
-    </footer>
- 
+    <script src="assets/js/footer-import.js"></script>
 </body>
- 
 </html>
