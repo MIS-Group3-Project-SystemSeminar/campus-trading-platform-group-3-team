@@ -35,7 +35,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       # Add steps here!!
-
+      - name: Htmlproofer
+        uses: athackst/htmlproofer-action@main
+        with:
+          directory: ./
+        continue-on-error: true
+      - name: stylelint
+        uses: actions-hub/stylelint@master
+        continue-on-error: true
       # End additional steps!!
       - name: Setup Pages
         uses: actions/configure-pages@v5
