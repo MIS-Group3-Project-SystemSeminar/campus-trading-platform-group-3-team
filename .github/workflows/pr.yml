@@ -19,5 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       # Add steps here!!
-
+      - name: Htmlproofer
+        uses: athackst/htmlproofer-action@v1.0.0 # Use the latest stable release
+        with:
+          directory: ./
+        continue-on-error: true
+    
       # End additional steps!!
