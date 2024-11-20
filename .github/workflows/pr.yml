@@ -33,10 +33,11 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v3
         with:
-         path: ~/.npm
-         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+         path: ~/assets
+         key: ${{ runner.os }}-node-${{ hashFiles('**/assets/**/*') }}
          restore-keys: |
-          ${{ runner.os }}-node-
+          ${{ runner.os }}-static-
+          static-
 
       - name: stylelint
         uses: actions-hub/stylelint@master
