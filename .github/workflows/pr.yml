@@ -35,5 +35,14 @@ jobs:
          restore-keys: |
           ${{ runner.os }}-node-
 
+      # 4. Upload artifacts (e.g., test reports, logs)
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: path/to/test/results
+
+
         
       # End additional steps!!
