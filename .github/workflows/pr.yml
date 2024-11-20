@@ -35,13 +35,11 @@ jobs:
          restore-keys: |
           ${{ runner.os }}-node-
 
-      # 4. Upload artifacts (e.g., test reports, logs)
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
+      #  Style Lint YAML
+      - name: Lint CSS
+        uses: stylelint/stylelint-action@v3
         with:
-          name: test-results
-          path: path/to/test/results
+          files: '**/*.css'
 
 
         
