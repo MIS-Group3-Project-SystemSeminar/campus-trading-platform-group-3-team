@@ -36,8 +36,8 @@ jobs:
           ${{ runner.os }}-node-
 
       #  Style Lint YAML
-      - name: Lint CSS
-        uses: stylelint/stylelint-action@v3
+      - name: stylelint
+        uses: actions-hub/stylelint@master
         with:
           files: '**/*.css'
 
