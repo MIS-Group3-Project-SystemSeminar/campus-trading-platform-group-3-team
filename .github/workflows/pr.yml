@@ -42,7 +42,8 @@ jobs:
       - name: stylelint
         uses: actions-hub/stylelint@master
         continue-on-error: true
-        with:
-          args: './assets/css/*.css' 
-          entry-point: ./
+        env:
+          #args: './assets/css/*.css' 
+          PATTERN: "*.css"
+          
       # End additional steps!!
