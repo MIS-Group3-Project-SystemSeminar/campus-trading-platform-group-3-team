@@ -42,6 +42,5 @@ jobs:
         uses: actions-hub/stylelint@master
         continue-on-error: true
         with:
-          args: '**/*.css'
-        
+          args: './assets/css/**/*.css'       
       # End additional steps!!
