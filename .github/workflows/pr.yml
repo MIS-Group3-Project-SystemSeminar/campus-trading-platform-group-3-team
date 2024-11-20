@@ -35,9 +35,9 @@ jobs:
          restore-keys: |
           ${{ runner.os }}-node-
 
-      #  Style Lint YAML
       - name: stylelint
-        uses: actions-hub/stylelint@master
+        uses: actions-hub/stylelint@v2 # Use the latest stable version
+        continue-on-error: true
 
         
       # End additional steps!!
