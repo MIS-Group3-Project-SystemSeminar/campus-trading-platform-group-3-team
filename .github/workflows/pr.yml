@@ -42,5 +42,6 @@ jobs:
         uses: actions-hub/stylelint@master
         continue-on-error: true
         with:
-          args: './assets/css/trading-post-style.css'       
+          args: './assets/css/*.css' 
+          working-directory: ./
       # End additional steps!!
