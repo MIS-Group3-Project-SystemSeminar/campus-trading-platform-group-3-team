@@ -44,5 +44,5 @@ jobs:
         continue-on-error: true
         with:
           args: './assets/css/*.css' 
-          working-directory: ./
+          entry-point: ./
       # End additional steps!!
