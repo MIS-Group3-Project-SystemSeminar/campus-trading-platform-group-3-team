@@ -38,9 +38,6 @@ jobs:
       #  Style Lint YAML
       - name: stylelint
         uses: actions-hub/stylelint@master
-        with:
-          files: '**/*.css'
-
 
         
       # End additional steps!!
