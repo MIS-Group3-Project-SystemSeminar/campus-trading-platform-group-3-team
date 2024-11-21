@@ -6,11 +6,32 @@
     <title>Seller Profile</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/trading-post-style.css">
-	<style>
+    <style>
+        /* Styling for Star Ratings */
+        .star-rating {
+            font-size: 18px;
+            color: #f39c12; /* Gold for stars */
+            margin-top: 10px;
+        }
+
+        /* Reviews Section Styling */
+        .reviews ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reviews li {
+            margin: 10px 0;
+        }
+
+        .reviews strong {
+            color: #333;
+        }
+
         /* Optional: Style the Follow/Unfollow button */
         .follow-btn {
             padding: 10px 20px;
-            background-color: #4CAF50; /* Green background for Follow */
+            background-color: #4CAF50; /* Green for Follow */
             color: white;
             border: none;
             border-radius: 5px;
@@ -19,7 +40,7 @@
         }
 
         .unfollow-btn {
-            background-color: #f44336; /* Red background for Unfollow */
+            background-color: #f44336; /* Red for Unfollow */
         }
 
         .follow-btn:hover {
@@ -51,9 +72,13 @@
         <section class="basic-info">
             <img src="assets/images/default-profile.png" alt="Profile Picture" class="profile-pic">
             <h2>Seller Name</h2>
+            <!-- Star Rating Placeholder -->
+            <div class="star-rating">
+                ⭐⭐⭐⭐☆ (4/5)
+            </div>
         </section>
 
-	<!-- Follow Button -->
+        <!-- Follow Button -->
         <section class="follow-section">
             <button id="followButton" class="follow-btn">Follow</button>
         </section>
@@ -70,7 +95,17 @@
         <!-- Reviews Section -->
         <section class="reviews">
             <h2>Reviews</h2>
-            <p>No reviews available.</p>
+            <ul>
+                <li>
+                    <strong>Reviewer 1:</strong> ⭐⭐⭐⭐⭐ (5/5) - "Amazing seller! Highly recommend."
+                </li>
+                <li>
+                    <strong>Reviewer 2:</strong> ⭐⭐⭐⭐☆ (4/5) - "Good experience overall."
+                </li>
+                <li>
+                    <strong>Reviewer 3:</strong> ⭐⭐⭐☆☆ (3/5) - "Average service. Room for improvement."
+                </li>
+            </ul>
         </section>
 
         <!-- Message Button -->
@@ -78,11 +113,9 @@
     </main>
 
     <!-- Footer -->
+    <script src="assets/js/footer-import.js"></script>
 
-<script src="assets/js/footer-import.js"></script>
-
-
-	 <!-- JavaScript to handle Follow/Unfollow -->
+    <!-- JavaScript to handle Follow/Unfollow -->
     <script>
         // Get the button element
         const followButton = document.getElementById("followButton");
