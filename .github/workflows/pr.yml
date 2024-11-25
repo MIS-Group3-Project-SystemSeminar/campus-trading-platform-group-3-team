@@ -28,16 +28,13 @@ jobs:
         with:
           directory: ./
         continue-on-error: true
-        
-      # Cache dependencies
-      - name: Cache node modules
-        uses: actions/cache@v3
+    
+      # Samuel Mosher: Validate HTML with html5-validator
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@master
         with:
-         path: ~/assets
-         key: ${{ runner.os }}-static-${{ hashFiles('**/assets/**/*') }}
-         restore-keys: |
-          ${{ runner.os }}-static-
-          static-
+          root: "./"
+        continue-on-error: true # Do not fail the workflow if this step fails
 
       - name: stylelint
         uses: actions-hub/stylelint@master
