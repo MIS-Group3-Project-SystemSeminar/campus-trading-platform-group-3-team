@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/trading-post-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Trading Post FAQ">
+
     <title>FAQ - Trading Post System</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
 
         .container {
             width: 80%;
@@ -74,7 +72,24 @@
 </head>
 
 <body>
-
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <a href="demo_homepage.html" class="home-link">
+                <span class="material-icons">home</span> Home
+            </a>
+            <ul>
+                <li><a href="about.html"><span class="material-icons">info</span> About</a></li>
+                <li><a href="account-info.html"><span class="material-icons">person</span> Account Info</a></li>
+                <li><a href="create-account.html"><span class="material-icons">person_add</span> Create Account</a></li>
+                <li><a href="login.html"><span class="material-icons">login</span> Login</a></li>
+            </ul>
+            <div id="search-bar-container" class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><span class="material-icons">search</span></button>
+            </div>
+        </nav>
+    </header>
     <div class="container">
         <h1>Campus Trading Post FAQ</h1>
 
@@ -175,7 +190,7 @@
             });
         }
     </script>
-
+<script src="assets/js/footer-import.js"></script>
 </body>
 
 </html>
