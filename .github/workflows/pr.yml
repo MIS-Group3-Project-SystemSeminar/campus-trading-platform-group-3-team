@@ -28,16 +28,12 @@ jobs:
         with:
           directory: ./
         continue-on-error: true
-        
-      # Cache dependencies
-      - name: Cache node modules
-        uses: actions/cache@v3
+    
+      - name: HTML5Validator
+        uses: Cyb3r-Jak3/html5validator-action
         with:
-         path: ~/assets
-         key: ${{ runner.os }}-static-${{ hashFiles('**/assets/**/*') }}
-         restore-keys: |
-          ${{ runner.os }}-static-
-          static-
+          root: tests/
+          blacklist: tests/invalid  
 
       - name: stylelint
         uses: actions-hub/stylelint@master
