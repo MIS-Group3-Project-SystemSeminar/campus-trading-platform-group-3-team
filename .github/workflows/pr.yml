@@ -42,7 +42,7 @@ jobs:
         uses: actions-hub/stylelint@master
         continue-on-error: true
         env:
-          PATTERN: "**/.css"
+          PATTERN: "**/*.css"
           
         #env:
           #args: './assets/css/*.css' 
