@@ -37,9 +37,13 @@ jobs:
           root: "./"
         continue-on-error: true # Do not fail the workflow if this step fails
 
+      # Jessalyn Heckel: CSS Linter With stylelint
       - name: stylelint
         uses: actions-hub/stylelint@master
         continue-on-error: true
+        env:
+          PATTERN: "**/.css"
+          
         #env:
           #args: './assets/css/*.css' 
          # PATTERN: "*.css"
