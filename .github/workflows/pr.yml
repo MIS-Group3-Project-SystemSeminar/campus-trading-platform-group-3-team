@@ -56,15 +56,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
-          :wave: Hello! This workflow has completed the following checks for your pull request:
-          
-          - **HTML Proofing**: Checked the repository's HTML files for common errors.
-          - **HTML Validation**: Ensured all HTML adheres to standards using `html5validator`.
-          - **CSS Linting**: Analyzed CSS files for potential issues with `stylelint`.
-          - **Spell Check**: Performed a basic spell check using `pyspelling`.
-
-          ### Results Summary:
-          Please review the logs for detailed results. Fix any reported issues to ensure the PR meets the project's quality standards before merging. Feel free to reach out if you need assistance!
+            Hello world ! :wave:
 
   # Jessalyn Heckel: CSS Linter With stylelint Action
   stylelint:
