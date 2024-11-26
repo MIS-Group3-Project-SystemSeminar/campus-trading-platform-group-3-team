@@ -38,6 +38,13 @@ jobs:
         with:
           root: "./"
         continue-on-error: true # Do not fail the workflow if this step fails
+       
+      # Devin Bowers : Actions comment pull request
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Hello world ! :wave:
 
       # Jessalyn Heckel: CSS Linter With stylelint
       - name: stylelint
