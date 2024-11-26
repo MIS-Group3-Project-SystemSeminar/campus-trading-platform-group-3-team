@@ -1,2 +1,7 @@
 matrix:
-- spellchecker: aspell
+- name: Python Source
+  aspell:
+    lang: en
+    d: en_US
+  sources:
+    - pyspelling/**/*.py
