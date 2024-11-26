@@ -1,7 +1,7 @@
 matrix:
-- name: Python Source
+- name: SpellCheck
   aspell:
     lang: en
     d: en_US
   sources:
-    - pyspelling/**/*.py
+    - ./**/*.html
