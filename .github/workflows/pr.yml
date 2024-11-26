@@ -66,9 +66,11 @@ jobs:
 
       # Jonathan Misenheimer: Add spellcheck to workflow
       # This step runs PySpelling to check for spelling errors
-      - uses: actions/checkout@v4
+        - uses: actions/checkout@v4
       
       - name: Run PySpelling as a GitHub action
-        uses: sbates130272/spellcheck-github-actions@v0.6.0
+        uses: sbates130272/spellcheck-github-actions@v0.6.0ooo
+        with:
+          invalid-field: true
       
       # End additional steps!!
