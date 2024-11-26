@@ -1,0 +1,7 @@
+matrix:
+- name: SpellCheck
+  aspell:
+    lang: en
+    d: en_US
+  sources:
+    - ./**/*.html

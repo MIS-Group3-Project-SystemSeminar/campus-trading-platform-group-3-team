@@ -57,12 +57,18 @@ jobs:
           #args: './assets/css/*.css' 
          # PATTERN: "*.css"
        
-       # Teguh add peaceiris  
+      # Teguh add peaceiris  
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
+      # Jonathan Misenheimer: Add spellcheck to workflow
+      # This step runs PySpelling to check for spelling errors
+      
+      - name: Run PySpelling as a GitHub action
+        uses: sbates130272/spellcheck-github-actions@v0.6.0
+        continue-on-error: true
       
       # End additional steps!!
