@@ -10,10 +10,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Add additional jobs here!!
-
-  # End additional job steps!!
-  lint:
+  
+  # Ellie Scott: Htmlproofer Action 
+  htmlproofer:
     runs-on: ubuntu-latest
     outputs:
       status: $({ steps.lint-html.outcome )}
@@ -24,51 +23,78 @@ jobs:
       - name: List Files
         run: find . -name "*.css"
         
-      # Add steps here!!
-      # Htmlproofer Action - Updated to use v1 (latest stable version)
       - name: Htmlproofer
-        uses: athackst/htmlproofer-action@main # Use the latest stable release
+        uses: athackst/htmlproofer-action@main 
         with:
           directory: ./
         continue-on-error: true
-    
-      # Samuel Mosher: Validate HTML with html5-validator
+
+
+  # Samuel Mosher: Validate HTML with html5-validator      
+  html5validator:
+    runs-on: ubuntu-latest
+    outputs:
+      status: $({ steps.lint-html.outcome )}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Validate HTML
         uses: Cyb3r-Jak3/html5validator-action@master
         with:
           root: "./"
-        continue-on-error: true # Do not fail the workflow if this step fails
+        continue-on-error: true 
        
-      # Devin Bowers : Actions comment pull request
+  # Devin Bowers : Actions comment pull request
+  comment-pull-request:
+    runs-on: ubuntu-latest
+    outputs:
+      status: $({ steps.lint-html.outcome )}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
             Hello world ! :wave:
 
-      # Jessalyn Heckel: CSS Linter With stylelint
+  # Jessalyn Heckel: CSS Linter With stylelint Action
+  stylelint:
+    runs-on: ubuntu-latest
+    outputs:
+      status: $({ steps.lint-html.outcome )}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: stylelint
         uses: actions-hub/stylelint@master
         continue-on-error: true
         env:
           PATTERN: "**/*.css"
           
-        #env:
-          #args: './assets/css/*.css' 
-         # PATTERN: "*.css"
-       
-      # Teguh add peaceiris  
+  # Teguh: PeaceIris Action
+  peaceiris:
+    runs-on: ubuntu-latest
+    outputs:
+      status: $({ steps.lint-html.outcome )}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
-      # Jonathan Misenheimer: Add spellcheck to workflow
-      # This step runs PySpelling to check for spelling errors
-      
+  # Jonathan Misenheimer: Add PySpelling action to workflow 
+  pyspelling:
+    runs-on: ubuntu-latest
+    outputs:
+      status: $({ steps.lint-html.outcome )}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run PySpelling as a GitHub action
         uses: sbates130272/spellcheck-github-actions@v0.6.0
         continue-on-error: true
       
-      # End additional steps!!
