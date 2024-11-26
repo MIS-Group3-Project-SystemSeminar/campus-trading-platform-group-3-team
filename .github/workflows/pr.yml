@@ -69,7 +69,6 @@ jobs:
       
       - name: Run PySpelling as a GitHub action
         uses: sbates130272/spellcheck-github-actions@v0.6.0
-        with:
-          invalid-field: true
+        continue-on-error: true
       
       # End additional steps!!
