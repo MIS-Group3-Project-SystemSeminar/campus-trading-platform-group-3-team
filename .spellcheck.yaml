@@ -1,7 +1,16 @@
 matrix:
 - name: SpellCheck
+  sources:
+    - ./**/*.html
   aspell:
     lang: en
     d: en_US
-  sources:
-    - ./**/*.html
+  pipeline:
+    - pyspelling.filters.html:
+        comments: false
+        attributes:
+          - title
+          - alt
+        ignores:
+          - code
+          - pre
