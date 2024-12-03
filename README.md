@@ -19,18 +19,49 @@ The project repository for development is hosted on github.com, and makes use of
   
 ## Vision Statement
 
-To build an easy-to-use online marketplace where students can buy and sell items, helping to create a community-focused economy and encouraging sustainable resource-sharing on campus.
+To build an easy-to-use online platform that allows students to buy, sell, and trade items directly with each other. By simplifying the exchange of goods within the campus community, we aim to create a marketplace that empowers students to buy items they need, earn money from selling items, and foster a culture of convenience and collaboration.
 
 ## Project Scope
+### Current Features:
 
-### What’s included:
+*   Student Account Creation Page: Design a layout for user registration.
+    
+*   Messaging System: Add content blocks for buyer-seller communication.
+    
+*   Seller Rating and Reviews: Enable feedback on seller profiles.
+    
+*   Trading Post Demo Homepage: Build an initial prototype homepage.
+    
+*   Search Functionality: Include a search bar and results page.
+    
+*   FAQ and Terms of Service (TOS) Pages: Provide information and guidelines for users.
+    
+*   Product Listing Page (Placeholder): Create a basic page for showcasing items.
+    
+*   Login Functionality (Placeholder): Develop initial login capabilities.
+    
+*   Contact Us Page: Provide a way for users to submit inquiries.
+    
+*   Footer Template: Implement a consistent footer across all pages.
+    
+*   GitHub Actions: Automate CI/CD processes for pull requests and deployments.
+    
+*   AI Chatbot (Placeholder): Add a basic framework for chatbot functionality.
+    
 
-- **Student registration and authentication**
-- **A secure platform for posting and browsing listings**
-- **Messaging between buyers and sellers**
-- **Rating and review system**
-- **Admin control panel**
-- **Shipping services**
-- **Payment processing**
-- **Third-party seller integration**
-- **Functionality across multiple campuses**
+### Planned Future Features:
+
+*   Admin Control Panel: Centralized management of users and platform settings.
+    
+*   Shipping Services: Integrate options for shipping transactions.
+    
+*   Payment Processing: Securely handle payments on the platform.
+    
+*   Third-Party Seller Integration: Allow external vendors to list items.
+    
+*   Multi-Campus Support: Expand the platform to support multiple campuses.
+    
+*   Student Verification: Ensure users are verified students for secure participation.
+    
+*   Google Firebase Integration: Add Firebase support for enhanced backend functionality.
+
